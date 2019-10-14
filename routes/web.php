@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('ID/{id}',function($id) {
+   echo 'ID: '.$id;
+});
+Route::get('user/{name?}', function ($name = 'admin') { return $name;});
+Route::get('users/profile', 'UserController@showProfile')->name('profile');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
