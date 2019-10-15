@@ -29,3 +29,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/internships', 'HomeController@internships')->name('internships');
 Route::get('/activities', 'HomeController@activities')->name('activities');
+Route::get('/add-activities', 'HomeController@add_activities')->name('add-activities');
+Route::get('/add-internship', 'HomeController@add_internship')->name('add-internship');

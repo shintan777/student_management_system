@@ -24,8 +24,7 @@
                     @endforeach
                     </table>
                 </div>
-
-
+            <button><a href="{{ route('add-activities') }}">Add Activity</a></button>
             </div>
         </div>
     </div>

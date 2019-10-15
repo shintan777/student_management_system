@@ -13,7 +13,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <p>I AM HERE</p>
                     <table>
                     @foreach($res as $key => $data)
                         <tr >
@@ -30,9 +29,8 @@
                     @endforeach
                     </table>
                 </div>
-
-
             </div>
+            <button><a href="{{ route('add-internship') }}">Add Internship</a></button>
         </div>
     </div>
 </div>
