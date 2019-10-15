@@ -28,6 +28,7 @@ class HomeController extends Controller
     {
         // $res = \DB::table('student')->pluck('Fname', 'Lname', 'LibCnumber', 'gender'.'email','dept','phno');
        
+      
         $res = \DB::table('student')->get();
        return view('home',['res' => $res]);
     }
