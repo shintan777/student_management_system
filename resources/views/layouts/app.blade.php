@@ -26,6 +26,12 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     S.M.S
                 </a>
+                <a class="navbar-brand" href="{{route('activities')  }}">
+                  Activities
+                </a>
+                <a class="navbar-brand" href="{{ route('internships')  }}">
+                    Internships
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -76,5 +82,9 @@
             @yield('content')
         </main>
     </div>
+    <footer>
+      <center>  <p>Copyright Reserved</p></center>
+        
+      </footer> 
 </body>
 </html>
