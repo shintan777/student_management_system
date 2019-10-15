@@ -85,5 +85,17 @@ class HomeController extends Controller
                 'libno' => $id
             ]);   
     }
+<<<<<<< HEAD
     
+=======
+    public function insert_internship(Request $data)
+    {
+        $id = \Auth::user()->email;
+        $res = \DB::select('select * from student where email = ?', [$id]);
+        $id = $res[0]->LibCnumber;
+        echo  $data['atype'];
+        echo  $data['description'];
+        echo  $data['sdate'];
+    }
+>>>>>>> 8b3335a9cbc4e3d7732561e2c81dbd33214ab058
 }

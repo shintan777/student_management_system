@@ -45,7 +45,7 @@
                             <label for="atype" class="col-md-4 col-form-label text-md-right">{{ __('Activity Type') }}</label>
 
                             <div class="col-md-6">
-                            <select id ="atype" value="atype" name="atype">
+                            <select id ="atype" name="atype">
                             <option value="EXTRA">Extra-Curricular</option>
                             <option value="CO-CURR">Co-Curricular</option>
                             </select>

@@ -15,7 +15,7 @@
                     @endif
                     
                 </div>
-                <form method="POST" action="{{ route('add-internship') }}">
+                <form method="POST" action="{{ route('insert-internship') }}">
                     @csrf
 
                     <div class="form-group row">
