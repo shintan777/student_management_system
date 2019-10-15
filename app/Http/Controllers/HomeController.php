@@ -67,18 +67,19 @@ class HomeController extends Controller
     {
        return view('add-internship');
     }
-    public function insert_activities(array $data)
+    public function insert_activities(Request $data)
         
     {
         $id = \Auth::user()->email;
         $res = \DB::select('select * from student where email = ?', [$id]);
         $id = $res[0]->LibCnumber;
-
-            return activities::create([
-                'atype' => $data['atype'],
-                'description' => $data['description'],
-                'sdate' => $data['sdate'],
-                'libno' => $id
-            ]);   
+        echo  $data['atype'];
+        echo  $data['description'];
+        echo  $data['sdate'];
     }
 }
+// }
+// 'atype' =>
+// 'description' =>
+// 'sdate' =>
+// 'libno' =>

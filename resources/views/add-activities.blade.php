@@ -35,18 +35,17 @@
                             <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id="description" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('description') }}" required >
+                                <textarea id="description" class="form-control @error('email') is-invalid @enderror" name="description" value="{{ old('description') }}" required >
                                 </textarea>
 
-                                
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Activity Type') }}</label>
+                            <label for="atype" class="col-md-4 col-form-label text-md-right">{{ __('Activity Type') }}</label>
 
                             <div class="col-md-6">
-                            <select id ="type" value="atype">
+                            <select id ="atype" value="atype" name="atype">
                             <option value="EXTRA">Extra-Curricular</option>
                             <option value="CO-CURR">Co-Curricular</option>
                             </select>
