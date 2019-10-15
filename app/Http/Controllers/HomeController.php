@@ -83,8 +83,8 @@ class HomeController extends Controller
         $id = \Auth::user()->email;
         $res = \DB::select('select * from student where email = ?', [$id]);
         $id = $res[0]->LibCnumber;
-        echo  $data['atype'];
-        echo  $data['description'];
+        echo  $data['name'];
+        echo  $data['stipend'];
         echo  $data['sdate'];
     }
 }
