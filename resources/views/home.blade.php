@@ -16,13 +16,13 @@
                     <table>
                     @foreach($res as $key => $data)
                         <tr >    
-                        <th>{{$data->Fname}}</th>
-                        <th>{{$data->Lname}}</th>
-                        <th>{{$data->LibCnumber}}</th>
-                        <th>{{$data->GENDER}}</th>
-                        <th>{{$data->email}}</th>
-                        <th>{{$data->dept}}</th>                 
-                        <th>{{$data->phno}}</th>                 
+                        <tr><th>First Name</th><td>{{$data->Fname}}</td></tr>
+                        <tr><th>Last Name</th><td>{{$data->Lname}}</td></tr>
+                        <tr><th>Library Number</th><td>{{$data->LibCnumber}}</td></tr>
+                        <tr><th>Gender</th><td>{{$data->GENDER}}</td></tr>
+                        <tr><th>Email</th><td>{{$data->email}}</td></tr>
+                        <tr><th>Department</th><td>{{$data->dept}}</td></tr>                 
+                        <tr><th>Phone No</th><td>{{$data->phno}}</td></tr>   
                         </tr>
                     @endforeach
                     </table>
