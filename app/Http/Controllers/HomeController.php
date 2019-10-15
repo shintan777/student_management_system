@@ -71,7 +71,7 @@ class HomeController extends Controller
         return view('edit-profile');
     }
 
-    public function insert_activities(array $data)
+    public function insert_activities(Request $data)
         
     {
         $id = \Auth::user()->email;
@@ -86,9 +86,14 @@ class HomeController extends Controller
     {
         $id = \Auth::user()->email;
         $res = \DB::select('select * from student where email = ?', [$id]);
-        $id = $res[0]->LibCnumber;
-        echo  $data['name'];
-        echo  $data['stipend'];
-        echo  $data['sdate'];
+        $libno = $res[0]->LibCnumber;
+        $cid = \DB::select('select * from company where cname = ?',[$data['cname']]);
+        $cid = $cid[0]->cid;
+
+        $res2 = array('PNAME'=>$data['name'],'DOMAIN'=>$data['domain'],'MENTOR'=>$data['mentor'],'STIPEND'=>$data['stipend'],
+                      'SDATE'=>$data['sdate'],'EDATE'=>$data['edate'],'CERTI'=>'link to bucket','LIBNO'=>$libno,'CID'=>$cid);
+        \DB::table('internship')->insert($res2);
+        
+        return view('add-internship');
     }
 }
