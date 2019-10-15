@@ -28,16 +28,25 @@ class HomeController extends Controller
     {
         // $res = \DB::table('student')->pluck('Fname', 'Lname', 'LibCnumber', 'gender'.'email','dept','phno');
        
-        $res = \DB::table('student')->get();
-       return view('home',['res' => $res]);
+        $id = \Auth::user()->email;
+        $res = \DB::select('select * from student where email = ?', [$id]);
+        return view('home',['res' => $res]);
     }
 
     public function internships()
     {
         // $res = \DB::table('student')->pluck('Fname', 'Lname', 'LibCnumber', 'gender'.'email','dept','phno');
        
-        $res = \DB::table('student')->get();
-       return view('internships',['res' => $res]);
+        $id = \Auth::user()->email;
+        $res = \DB::select('select * from student where email = ?', [$id]);
+        $id = $res[0]->LibCnumber;
+        $res2 = \DB::select('select * from internship where LIBNO = ?', [$id]);
+        foreach ($res2 as $key) {
+            $cid =  $key->CID;  
+            $res3 = \DB::select('select cname from company where cid = ?', [$cid]);
+            $key->company = $res3[0]->cname;
+        }
+       return view('internships',['res' => $res2]);
     }
     public function activities()
     {
@@ -45,8 +54,6 @@ class HomeController extends Controller
        
         $res = \DB::table('student')->get();
        return view('activities',['res' => $res]);
-        $id = \Auth::user()->email;
-        $res = \DB::select('select * from student where email = ?', [$id]);
-        return view('home',['res' => $res]);
+        
     }
 }
