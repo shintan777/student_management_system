@@ -67,7 +67,11 @@ class HomeController extends Controller
     {
        return view('add-internship');
     }
-    public function insert_activities(Request $data)
+    public function edit_profile(){
+        return view('edit-profile');
+    }
+
+    public function insert_activities(array $data)
         
     {
         $id = \Auth::user()->email;
@@ -88,8 +92,3 @@ class HomeController extends Controller
         echo  $data['sdate'];
     }
 }
-// }
-// 'atype' =>
-// 'description' =>
-// 'sdate' =>
-// 'libno' =>
