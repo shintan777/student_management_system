@@ -73,9 +73,10 @@ class HomeController extends Controller
         $id = \Auth::user()->email;
         $res = \DB::select('select * from student where email = ?', [$id]);
         $id = $res[0]->LibCnumber;
-        echo  $data['atype'];
-        echo  $data['description'];
-        echo  $data['sdate'];
+        $data['libno'] = $id;
+        $res2 = array('atype'=> $data['atype'], 'description'=> $data['description'],'sdate'=> $data['sdate'],'libno'=> $id);
+        \DB::table('activities')->insert($res2);
+        return view('add-activities');
     }
     public function insert_internship(Request $data)
     {
