@@ -26,3 +26,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/internships', 'HomeController@internships')->name('internships');
+Route::get('/activities', 'HomeController@activities')->name('activities');
