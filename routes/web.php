@@ -31,3 +31,5 @@ Route::get('/internships', 'HomeController@internships')->name('internships');
 Route::get('/activities', 'HomeController@activities')->name('activities');
 Route::get('/add-activities', 'HomeController@add_activities')->name('add-activities');
 Route::get('/add-internship', 'HomeController@add_internship')->name('add-internship');
+Route::post('/insert-internship', 'HomeController@insert_internship')->name('insert-internship');
+Route::post('/insert-activities', 'HomeController@insert_activities')->name('insert-activities');
