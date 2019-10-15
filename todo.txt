@@ -1,11 +1,4 @@
-/home :
-    all details from stud table to be shown
-
-/internship :
-    all internship details
-
-/activites : 
-    "
+/result:
 
 /register (maybe stand alone or whatever) --will see later xD
     insert into stud n user
@@ -15,3 +8,9 @@
     
 /company-login
     Kya kare isse ??
+
+##########################
+1. Add home link
+2. Footer theek karna
+3. Generate alert saying updated successfully
+4. 
