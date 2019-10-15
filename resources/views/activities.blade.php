@@ -16,19 +16,13 @@
                     <table>
                     @foreach($res as $key => $data)
                         <tr >    
-                        <tr><th>First Name</th><td>{{$data->Fname}}</td></tr>
-                        <tr><th>Last Name</th><td>{{$data->Lname}}</td></tr>
-                        <tr><th>Library Number</th><td>{{$data->LibCnumber}}</td></tr>
-                        <tr><th>Gender</th><td>{{$data->GENDER}}</td></tr>
-                        <tr><th>Email</th><td>{{$data->email}}</td></tr>
-                        <tr><th>Department</th><td>{{$data->dept}}</td></tr>                 
-                        <tr><th>Phone No</th><td>{{$data->phno}}</td></tr>   
+                        <tr><th>Activity Id</th><td>{{$data->Aid}}</td></tr>
+                        <tr><th>Type</th><td>{{$data->atype}}</td></tr>
+                        <tr><th>Description</th><td>{{$data->description}}</td></tr>
+                        <tr><th>Date</th><td>{{$data->sdate}}</td></tr>
                         </tr>
                     @endforeach
                     </table>
-
-                    <!-- <input type="button" value="internships" href="{{route('internships',$data->LibCnumber)}}">
-                    <input type="button" value="activities" href="{{route('activities',$data->LibCnumber)}}"> -->
                 </div>
 
 

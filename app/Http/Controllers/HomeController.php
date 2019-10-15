@@ -52,8 +52,11 @@ class HomeController extends Controller
     {
         // $res = \DB::table('student')->pluck('Fname', 'Lname', 'LibCnumber', 'gender'.'email','dept','phno');
        
-        $res = \DB::table('student')->get();
-       return view('activities',['res' => $res]);
-        
+        $id = \Auth::user()->email;
+        $res = \DB::select('select * from student where email = ?', [$id]);
+        $id = $res[0]->LibCnumber;
+
+        $res2 = \DB::select('select * from activities where LIBNO = ?', [$id]);
+        return view('activities',['res' => $res2]);
     }
 }
