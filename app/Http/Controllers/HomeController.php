@@ -24,7 +24,8 @@ class HomeController extends Controller
     public function index()
     {
         // $res = \DB::table('student')->pluck('Fname', 'Lname', 'LibCnumber', 'gender'.'email','dept','phno');
-        $res = \DB::table('student')->get();
+        $id = \Auth::user()->email;
+        $res = \DB::select('select * from student where email = ?', [$id]);
         return view('home',['res' => $res]);
     }
 }
