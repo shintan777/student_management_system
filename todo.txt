@@ -1,0 +1,13 @@
+/profile :
+    all details from stud table to be shown
+/internship :
+    all internship details
+/activites : 
+    "
+/register (maybe stand alone or whatever) --will see later xD
+    insert into stud n user
+/edit
+    update student
+    
+/company-login
+    Kya kare isse ??

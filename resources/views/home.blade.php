@@ -13,8 +13,19 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                    <table>
+                    @foreach($res as $key => $data)
+                        <tr >    
+                        <th>{{$data->Fname}}</th>
+                        <th>{{$data->Lname}}</th>
+                        <th>{{$data->LibCnumber}}</th>
+                        <th>{{$data->GENDER}}</th>
+                        <th>{{$data->email}}</th>
+                        <th>{{$data->dept}}</th>                 
+                        <th>{{$data->phno}}</th>                 
+                        </tr>
+                    @endforeach
+                    </table>
                 </div>
             </div>
         </div>
