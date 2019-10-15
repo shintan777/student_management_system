@@ -77,6 +77,15 @@ class HomeController extends Controller
         echo  $data['description'];
         echo  $data['sdate'];
     }
+    public function insert_internship(Request $data)
+    {
+        $id = \Auth::user()->email;
+        $res = \DB::select('select * from student where email = ?', [$id]);
+        $id = $res[0]->LibCnumber;
+        echo  $data['atype'];
+        echo  $data['description'];
+        echo  $data['sdate'];
+    }
 }
 // }
 // 'atype' =>
