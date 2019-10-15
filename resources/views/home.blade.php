@@ -27,8 +27,8 @@
                     @endforeach
                     </table>
 
-                    <input type="button" value="internships" href="{{route('internships',$data->LibCnumber)}}">
-                    <input type="button" value="activities " href="{{route('activities',$data->LibCnumber)}}">
+                    <button><a value="internships" href="{{ route('internships', $data->LibCnumber) }}">internships</a></button>
+                    <button><a value="activities " href="{{route('activities',$data->LibCnumber)}}">Activites</button>
                 </div>
 
 

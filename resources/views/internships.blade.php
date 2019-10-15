@@ -13,22 +13,22 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    <p>I AM HERE</p>
                     <table>
                     @foreach($res as $key => $data)
-                        <tr >    
-                        <tr><th>First Name</th><td>{{$data->Fname}}</td></tr>
-                        <tr><th>Last Name</th><td>{{$data->Lname}}</td></tr>
-                        <tr><th>Library Number</th><td>{{$data->LibCnumber}}</td></tr>
-                        <tr><th>Gender</th><td>{{$data->GENDER}}</td></tr>
-                        <tr><th>Email</th><td>{{$data->email}}</td></tr>
-                        <tr><th>Department</th><td>{{$data->dept}}</td></tr>                 
-                        <tr><th>Phone No</th><td>{{$data->phno}}</td></tr>   
+                        <tr >
+                        <tr><th>internship ID</th><td>{{$data->interid}}</td></tr>    
+                        <tr><th>Company</th><td>{{$data->company}}</td></tr>
+                        <tr><th>Project Name</th><td>{{$data->PNAME}}</td></tr>
+                        <tr><th>Domain</th><td>{{$data->DOMAIN}}</td></tr>
+                        <tr><th>Mentor</th><td>{{$data->MENTOR}}</td></tr>
+                        <tr><th>Stipend</th><td>{{$data->STIPEND}}</td></tr>
+                        <tr><th>Start Date</th><td>{{$data->SDATE}}</td></tr>
+                        <tr><th>End Date</th><td>{{$data->EDATE}}</td></tr>
+                        <tr><th>View Certificate</th><td><a href = "{{$data->CERTI}}" ></td></tr>                 
                         </tr>
                     @endforeach
                     </table>
-
-                    <input type="button" value="internships" href="{{route('internships',$data->LibCnumber)}}">
-                    <input type="button" value="activities " href="{{route('activities',$data->LibCnumber)}}">
                 </div>
 
 
