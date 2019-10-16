@@ -59,6 +59,18 @@ class HomeController extends Controller
         $res2 = \DB::select('select * from activities where LIBNO = ?', [$id]);
         return view('activities',['res' => $res2]);
     }
+
+    public function results()
+    {
+        // $res = \DB::table('student')->pluck('Fname', 'Lname', 'LibCnumber', 'gender'.'email','dept','phno');
+       
+        $id = \Auth::user()->email;
+        $res = \DB::select('select * from student where email = ?', [$id]);
+        $id = $res[0]->LibCnumber;
+
+        $res2 = \DB::select('select * from res where LIBNO = ?', [$id]);
+        return view('results',['res' => $res2]);
+    }
     public function add_activities()
     {
         return view('add-activities');
@@ -66,6 +78,10 @@ class HomeController extends Controller
     public function add_internship()
     {
        return view('add-internship');
+    }
+    public function add_result()
+    {
+       return view('add-result');
     }
     public function edit_profile(){
         return view('edit-profile');
@@ -80,7 +96,7 @@ class HomeController extends Controller
         $data['libno'] = $id;
         $res2 = array('atype'=> $data['atype'], 'description'=> $data['description'],'sdate'=> $data['sdate'],'libno'=> $id);
         \DB::table('activities')->insert($res2);
-        return view('add-activities');
+        return view('activities');
     }
     public function insert_internship(Request $data)
     {
@@ -94,6 +110,6 @@ class HomeController extends Controller
                       'SDATE'=>$data['sdate'],'EDATE'=>$data['edate'],'CERTI'=>'link to bucket','LIBNO'=>$libno,'CID'=>$cid);
         \DB::table('internship')->insert($res2);
         
-        return view('add-internship');
+        return view('internship');
     }
 }
