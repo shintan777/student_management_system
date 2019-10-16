@@ -120,11 +120,13 @@ class HomeController extends Controller
         $libno = $res[0]->LibCnumber;
         // $cid = \DB::select('select * from company where cname = ?',[$data['cname']]);
         // $cid = $cid[0]->cid;
-
+        $res = \DB::select('select * from res where LibC = ?', [$libno]);
+        if (count($res)>0)
+            \DB::table('res')->where('LibC', '=', $libno)->delete();
         $res2 = array('sem1'=>$data['sem1'],'sem2'=>$data['sem2'],'sem3'=>$data['sem3'],'sem4'=>$data['sem4'],'sem5'=>$data['sem5'],
                       'sem6'=>$data['sem6'],'sem7'=>$data['sem7'],'sem8'=>$data['sem8'],'LibC'=>$libno);
         \DB::table('res')->insert($res2);
-        
-        return view('results');
+        $res3 = \DB::select('select * from res where LibC = ?', [$libno]);
+        return view('results',['res' => $res3]);
     }
 }
