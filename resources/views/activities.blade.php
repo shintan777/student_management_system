@@ -20,7 +20,13 @@
                         <tr><th>Type</th><td>{{$data->atype}}</td></tr>
                         <tr><th>Description</th><td>{{$data->description}}</td></tr>
                         <tr><th>Date</th><td>{{$data->sdate}}</td></tr>
+                        <tr>
+                            <th><button><a href="{{ route('add-activities') }}">Edit Activity</a></button></th>
+                            <th><button><a href="{{ route('add-activities') }}">Delete Activity</a></button></th>
                         </tr>
+                        
+                        </tr>
+
                     @endforeach
                     </table>
                 </div>
