@@ -48,3 +48,5 @@ Route::get('/delete-internship', 'HomeController@delete_internship')->name('dele
 Route::get('/edit-profile', 'HomeController@edit_profile')->name('edit-profile');
 Route::post('/edit-activities', 'HomeController@edit_activities')->name('edit-activities');
 Route::post('/edit-internship', 'HomeController@edit_internship')->name('edit-internship');
+Route::get('/edit-activities', 'HomeController@edit_activities')->name('edit-activities');
+Route::post('/edit-activities', 'HomeController@edit_activities')->name('edit-activities');
