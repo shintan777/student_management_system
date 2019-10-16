@@ -43,4 +43,5 @@ Route::post('/delete-activities', 'HomeController@delete_activities')->name('del
 
 
 Route::get('/edit-profile', 'HomeController@edit_profile')->name('edit-profile');
+Route::get('/edit-activities', 'HomeController@edit_activities')->name('edit-activities');
 Route::post('/edit-activities', 'HomeController@edit_activities')->name('edit-activities');

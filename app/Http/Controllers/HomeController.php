@@ -131,4 +131,17 @@ class HomeController extends Controller
         $res3 = \DB::select('select * from res where LibC = ?', [$libno]);
         return view('results',['res' => $res3]);
     }
+
+    public function edit_activities(Request $data)   
+    {
+        // $id = \Auth::user()->email;
+        // $res = \DB::select('select * from student where email = ?', [$id]);
+        // $id = $res[0]->LibCnumber;
+        // $data['libno'] = $id;
+        // $res2 = array('atype'=> $data['atype'], 'description'=> $data['description'],'sdate'=> $data['sdate'],'libno'=> $id);
+        // \DB::table('activities')->insert($res2);
+        
+        // $res3 = \DB::select('select * from activities where LIBNO = ?', [$id]);
+        return view('edit-activities');
+    }
 }

@@ -21,7 +21,7 @@
                         <tr><th>Description</th><td>{{$data->description}}</td></tr>
                         <tr><th>Date</th><td>{{$data->sdate}}</td></tr>
                         <tr>
-                            <th><button><a href="{{ route('add-activities') }}">Edit Activity</a></button></th>
+                            <th><button><a href="{{ route('edit-activities') }}">Edit Activity</a></button></th>
                             <th><button><a href="{{ route('add-activities') }}">Delete Activity</a></button></th>
                         </tr>
                         

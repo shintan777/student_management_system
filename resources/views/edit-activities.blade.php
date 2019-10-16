@@ -15,7 +15,7 @@
                     @endif
                     
                 </div>
-                <form method="POST" action="{{ route('insert-activities') }}">
+                <form method="POST" action="{{ route('edit-activities') }}">
                         @csrf
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Activity Name') }}</label>
@@ -56,7 +56,7 @@
                             <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date') }}</label>
 
                             <div class="col-md-6">
-                                <input id="sdate" type="date" class="form-control @error('password') is-invalid @enderror" name="sdate" required>
+                                <input id="sdate" value="{{ old('description') }}" type="date" class="form-control @error('password') is-invalid @enderror" name="sdate" required>
 
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Submit') }}
+                                    {{ __('Edit') }}
                                 </button>
                                 
                             </div>
