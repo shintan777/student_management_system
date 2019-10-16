@@ -141,7 +141,39 @@ class HomeController extends Controller
         // $res2 = array('atype'=> $data['atype'], 'description'=> $data['description'],'sdate'=> $data['sdate'],'libno'=> $id);
         // \DB::table('activities')->insert($res2);
         
-        // $res3 = \DB::select('select * from activities where LIBNO = ?', [$id]);
+        // $res3 = \DB::select('select * from activi    ties where LIBNO = ?', [$id]);
         return view('edit-activities');
     }
+    public function delete_internship(Request $data)
+    {
+        $id = \Auth::user()->email;
+        $res = \DB::select('select * from student where email = ?', [$id]);
+        $libno = $res[0]->LibCnumber;
+        
+        \DB::table('internship')->where('LIBNO', '=', $libno)->delete();
+
+        $id = $res[0]->LibCnumber;
+        $res2 = \DB::select('select * from internship where LIBNO = ?', [$id]);
+        foreach ($res2 as $key) {
+            $cid =  $key->CID;  
+            $res3 = \DB::select('select cname from company where cid = ?', [$cid]);
+            $key->company = $res3[0]->cname;
+        }
+       return view('internships',['res' => $res2]);
+    }
+    public function delete_activities(Request $data)
+    {
+        $id = \Auth::user()->email;
+        $res = \DB::select('select * from student where email = ?', [$id]);
+        $libno = $res[0]->LibCnumber;
+        $aid = $data->Aid;
+        \DB::table('activities')->where('aid', '=', $aid)->delete();
+
+        $id = $res[0]->LibCnumber;
+        $res2 = \DB::select('select * from activities where LIBNO = ?', [$id]);
+        
+       return view('activities',['res' => $res2]);
+    }
+
+
 }

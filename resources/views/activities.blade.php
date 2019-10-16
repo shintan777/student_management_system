@@ -22,7 +22,7 @@
                         <tr><th>Date</th><td>{{$data->sdate}}</td></tr>
                         <tr>
                             <th><button><a href="{{ route('edit-activities') }}">Edit Activity</a></button></th>
-                            <th><button><a href="{{ route('add-activities') }}">Delete Activity</a></button></th>
+                            <th><button><a href="{{ route('delete-activities',(array)$data) }}">Delete Activity</a></button></th>
                         </tr>
                         
                         </tr>
