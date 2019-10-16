@@ -24,13 +24,18 @@
                         <tr><th>Stipend</th><td>{{$data->STIPEND}}</td></tr>
                         <tr><th>Start Date</th><td>{{$data->SDATE}}</td></tr>
                         <tr><th>End Date</th><td>{{$data->EDATE}}</td></tr>
-                        <tr><th>View Certificate</th><td><a href = "{{$data->CERTI}}" ></td></tr>                 
+                        <tr><th>View Certificate</th><td><a href = "{{$data->CERTI}}" ></td></tr> 
+                            <tr><td>
+                                <a href="{{ route('edit-internship') }}"><button>EDIT</button></a>
+                                <a href="{{ route('delete-internship',(array)$data) }}"><button>DELETE</button></a>
+
+                            </td></tr>                
                         </tr>
                     @endforeach
                     </table>
                 </div>
             </div>
-            <button><a href="{{ route('add-internship') }}">Add Internship</a></button>
+            <a href="{{ route('add-internship') }}"><button>Add Internship</button></a>
         </div>
     </div>
 </div>
