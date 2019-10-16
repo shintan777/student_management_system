@@ -26,8 +26,8 @@
                         <tr><th>End Date</th><td>{{$data->EDATE}}</td></tr>
                         <tr><th>View Certificate</th><td><a href = "{{$data->CERTI}}" ></td></tr> 
                             <tr><td>
-                                <a href="{{ route('edit-internship') }}"><button>EDIT</button></a>
-                                <a href="{{ route('delete-internship',(array)$data) }}"><button>DELETE</button></a>
+                                <a href="{{ route('edit-internship', (array) $data ) }}"><button>EDIT</button></a>
+                                <a href="{{ route('delete-internship', (array) $data ) }}"><button>DELETE</button></a>
 
                             </td></tr>                
                         </tr>

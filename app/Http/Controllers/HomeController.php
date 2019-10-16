@@ -144,6 +144,27 @@ class HomeController extends Controller
         
         return view('edit-activities',['res' => $res3]);
     }
+
+    public function edit_internship(Request $data)   
+    {
+        $id = \Auth::user()->email;
+        $res = \DB::select('select * from student where email = ?', [$id]);
+        $id = $res[0]->LibCnumber;
+        $aid = $data->interid;
+        
+        $res2 = \DB::select('select * from internship where interid = ?', [$aid]);
+
+        
+        foreach ($res2 as $key) {
+            $cid =  $key->CID;  
+            $res3 = \DB::select('select cname from company where cid = ?', [$cid]);
+            $key->cname = $res3[0]->cname;
+        }
+        // echo var_dump($res2);
+
+        return view('edit-internship',['res' => $res2]);
+    }
+
     public function delete_internship(Request $data)
     {
         $id = \Auth::user()->email;
@@ -192,6 +213,36 @@ class HomeController extends Controller
         
         $res3 = \DB::select('select * from activities where LIBNO = ?', [$id]);
         return view('activities',['res' => $res3]);
+    }
+
+    public function update_internship(Request $data)
+        
+    {
+        $id = \Auth::user()->email;
+        $res = \DB::select('select * from student where email = ?', [$id]);
+        $id = $res[0]->LibCnumber;
+        $data['libno'] = $id;
+
+        $aid = $data['interid'];
+        $cid = \DB::select('select * from company where cname = ?',[$data['cname']]);
+        $cid = $cid[0]->cid;
+        $res2 = array('PNAME'=>$data['name'],'DOMAIN'=>$data['domain'],'MENTOR'=>$data['mentor'],'STIPEND'=>$data['stipend'],
+                      'SDATE'=>$data['sdate'],'EDATE'=>$data['edate'],'CERTI'=>'link to bucket','LIBNO'=>$id,'CID'=>$cid);
+        
+        \DB::table('internship')
+        ->where('interid', $aid)  // find your user by their email
+        ->limit(1)  // optional - to ensure only one record is updated.
+        ->update($res2);  // update 
+        
+        $res2 = \DB::select('select * from internship where LIBNO = ?', [$id]);
+        
+        foreach ($res2 as $key) {
+            $cid =  $key->CID;  
+            $res3 = \DB::select('select cname from company where cid = ?', [$cid]);
+            $key->company = $res3[0]->cname;
+        }
+
+        return view('internships',['res' => $res2]);   
     }
 
 }

@@ -49,5 +49,7 @@ Route::get('/edit-profile', 'HomeController@edit_profile')->name('edit-profile')
 Route::post('/edit-activities', 'HomeController@edit_activities')->name('edit-activities');
 Route::post('/update-activities', 'HomeController@update_activities')->name('update-activities');
 Route::post('/edit-internship', 'HomeController@edit_internship')->name('edit-internship');
+Route::get('/edit-internship', 'HomeController@edit_internship')->name('edit-internship');
+Route::post('/update-internship', 'HomeController@update_internship')->name('update-internship');
 Route::get('/edit-activities', 'HomeController@edit_activities')->name('edit-activities');
 Route::post('/edit-activities', 'HomeController@edit_activities')->name('edit-activities');
