@@ -15,14 +15,15 @@
                     @endif
                     
                 </div>
-                <form method="POST" action="{{ route('edit-activities') }}">
+                <form method="POST" action="{{ route('update-activities') }}">
                         @csrf
-                        
+                        <input type='text' value='{{ $res[0]->Aid }}' style="display:none" name='Aid'>
                         <div class="form-group row">
                             <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id="description" class="form-control @error('email') is-invalid @enderror" name="description" value="{{ $res[0]->description }}" required >
+                                <textarea id="description" class="form-control @error('email') is-invalid @enderror" name="description" value="" required >
+                                {{ $res[0]->description }}
                                 </textarea>
 
                             </div>
@@ -43,7 +44,7 @@
                             <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date') }}</label>
 
                             <div class="col-md-6">
-                                <input id="sdate" value="{{ old('description') }}" type="date" class="form-control @error('password') is-invalid @enderror" name="sdate" required>
+                                <input id="sdate" value="{{ $res[0]->sdate }}" type="date" class="form-control @error('password') is-invalid @enderror" name="sdate" required>
 
                             </div>
                         </div>
@@ -52,7 +53,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Edit') }}
+                                   EDIT
                                 </button>
                                 
                             </div>

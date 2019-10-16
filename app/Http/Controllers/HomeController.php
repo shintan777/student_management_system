@@ -141,7 +141,7 @@ class HomeController extends Controller
         $id = $res[0]->LibCnumber;
         $aid = $data->Aid;
         $res3 = \DB::select('select * from activities where aid = ?', [$aid]);
-        echo var_dump($res3);
+        
         return view('edit-activities',['res' => $res3]);
     }
     public function delete_internship(Request $data)
@@ -175,5 +175,23 @@ class HomeController extends Controller
        return view('activities',['res' => $res2]);
     }
 
+    public function update_activities(Request $data)
+        
+    {
+        $id = \Auth::user()->email;
+        $res = \DB::select('select * from student where email = ?', [$id]);
+        $id = $res[0]->LibCnumber;
+        $data['libno'] = $id;
+        $aid = $data['Aid'];
+        
+        $res2 = array('atype'=> $data['atype'], 'description'=> $data['description'],'sdate'=> $data['sdate'],'libno'=> $id);
+        \DB::table('activities')
+        ->where('aid', $aid)  // find your user by their email
+        ->limit(1)  // optional - to ensure only one record is updated.
+        ->update($res2);  // update 
+        
+        $res3 = \DB::select('select * from activities where LIBNO = ?', [$id]);
+        return view('activities',['res' => $res3]);
+    }
 
 }
