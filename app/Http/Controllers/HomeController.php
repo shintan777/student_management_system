@@ -134,15 +134,13 @@ class HomeController extends Controller
 
     public function edit_activities(Request $data)   
     {
-        // $id = \Auth::user()->email;
-        // $res = \DB::select('select * from student where email = ?', [$id]);
-        // $id = $res[0]->LibCnumber;
-        // $data['libno'] = $id;
-        // $res2 = array('atype'=> $data['atype'], 'description'=> $data['description'],'sdate'=> $data['sdate'],'libno'=> $id);
-        // \DB::table('activities')->insert($res2);
-        
-        // $res3 = \DB::select('select * from activi    ties where LIBNO = ?', [$id]);
-        return view('edit-activities');
+        $id = \Auth::user()->email;
+        $res = \DB::select('select * from student where email = ?', [$id]);
+        $id = $res[0]->LibCnumber;
+        $aid = $data->Aid;
+        $res3 = \DB::select('select * from activities where aid = ?', [$aid]);
+        echo var_dump($res3);
+        return view('edit-activities',['res' => $res3]);
     }
     public function delete_internship(Request $data)
     {
