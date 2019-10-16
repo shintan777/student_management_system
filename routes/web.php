@@ -39,4 +39,8 @@ Route::post('/insert-internship', 'HomeController@insert_internship')->name('ins
 Route::post('/insert-activities', 'HomeController@insert_activities')->name('insert-activities');
 Route::post('/insert-results', 'HomeController@insert_results')->name('insert-results');
 
+Route::post('/delete-activities', 'HomeController@delete_activities')->name('delete-activities');
+
+
 Route::get('/edit-profile', 'HomeController@edit_profile')->name('edit-profile');
+Route::post('/edit-activities', 'HomeController@edit_activities')->name('edit-activities');
