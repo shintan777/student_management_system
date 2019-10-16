@@ -110,9 +110,11 @@ class HomeController extends Controller
 
         $res2 = array('PNAME'=>$data['name'],'DOMAIN'=>$data['domain'],'MENTOR'=>$data['mentor'],'STIPEND'=>$data['stipend'],
                       'SDATE'=>$data['sdate'],'EDATE'=>$data['edate'],'CERTI'=>'link to bucket','LIBNO'=>$libno,'CID'=>$cid);
-        \DB::table('internship')->insert($res2);
         
-        return view('internship');
+        \DB::table('internship')->insert($res2);
+         $res3 = \DB::select('select * from internship where LIBNO = ?', [$libno]);
+        return view('add-internship');
+        
     }
 
     public function insert_results(Request $data)
@@ -137,8 +139,8 @@ class HomeController extends Controller
         $id = \Auth::user()->email;
         $res = \DB::select('select * from student where email = ?', [$id]);
         $libno = $res[0]->LibCnumber;
-        
-        \DB::table('internship')->where('LIBNO', '=', $libno)->delete();
+        $aid = $data->interid;
+        \DB::table('internship')->where('interid', '=', $aid)->delete();
 
         $id = $res[0]->LibCnumber;
         $res2 = \DB::select('select * from internship where LIBNO = ?', [$id]);
