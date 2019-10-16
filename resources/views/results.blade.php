@@ -16,14 +16,14 @@
                     <table>
                     @foreach($res as $key => $data)
                         <tr >    
-                        <tr><th>sem 1</th><td>{{$data}}</td></tr>
-                        <tr><th>sem 2</th><td>{{$data->sem2}}</td></tr>
-                        <tr><th>sem 3</th><td>{{$data->sem3}}</td></tr>
-                        <tr><th>sem 4</th><td>{{$data->sem4}}</td></tr>
-                        <tr><th>sem 5</th><td>{{$data->sem5}}</td></tr>
-                        <tr><th>sem 6</th><td>{{$data->sem6}}</td></tr>
-                        <tr><th>sem 7</th><td>{{$data->sem7}}</td></tr>
-                        <tr><th>sem 8</th><td>{{$data->sem8}}</td></tr>
+                        <tr><th>sem 1 </th><td>{{$data->sem1}}</td></tr>
+                        <tr><th>sem 2 </th><td>{{$data->sem2}}</td></tr>
+                        <tr><th>sem 3 </th><td>{{$data->sem3}}</td></tr>
+                        <tr><th>sem 4 </th><td>{{$data->sem4}}</td></tr>
+                        <tr><th>sem 5 </th><td>{{$data->sem5}}</td></tr>
+                        <tr><th>sem 6 </th><td>{{$data->sem6}}</td></tr>
+                        <tr><th>sem 7 </th><td>{{$data->sem7}}</td></tr>
+                        <tr><th>sem 8 </th><td>{{$data->sem8}}</td></tr>
                         </tr>
                     @endforeach
                     </table>

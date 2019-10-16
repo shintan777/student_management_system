@@ -68,7 +68,7 @@ class HomeController extends Controller
         $res = \DB::select('select * from student where email = ?', [$id]);
         $id = $res[0]->LibCnumber;
 
-        $res2 = \DB::select('select * from res where LIBNO = ?', [$id]);
+        $res2 = \DB::select('select * from res where LibC = ?', [$id]);
         return view('results',['res' => $res2]);
     }
     public function add_activities()
@@ -111,5 +111,20 @@ class HomeController extends Controller
         \DB::table('internship')->insert($res2);
         
         return view('internship');
+    }
+
+    public function insert_results(Request $data)
+    {
+        $id = \Auth::user()->email;
+        $res = \DB::select('select * from student where email = ?', [$id]);
+        $libno = $res[0]->LibCnumber;
+        // $cid = \DB::select('select * from company where cname = ?',[$data['cname']]);
+        // $cid = $cid[0]->cid;
+
+        $res2 = array('sem1'=>$data['sem1'],'sem2'=>$data['sem2'],'sem3'=>$data['sem3'],'sem4'=>$data['sem4'],'sem5'=>$data['sem5'],
+                      'sem6'=>$data['sem6'],'sem7'=>$data['sem7'],'sem8'=>$data['sem8'],'LibC'=>$libno);
+        \DB::table('res')->insert($res2);
+        
+        return view('results');
     }
 }

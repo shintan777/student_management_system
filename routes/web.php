@@ -33,7 +33,7 @@ Route::get('/results', 'HomeController@results')->name('results');
 
 Route::get('/add-activities', 'HomeController@add_activities')->name('add-activities');
 Route::get('/add-internship', 'HomeController@add_internship')->name('add-internship');
-Route::get('/add-activity', 'HomeController@add_result')->name('add-activity');
+Route::get('/add-results', 'HomeController@add_result')->name('add-results');
 
 Route::post('/insert-internship', 'HomeController@insert_internship')->name('insert-internship');
 Route::post('/insert-activities', 'HomeController@insert_activities')->name('insert-activities');

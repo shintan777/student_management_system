@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Add New Activity</div>
+                <div class="card-header">Add New Result</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -17,60 +17,38 @@
                 </div>
                 <form method="POST" action="{{ route('insert-results') }}">
                         @csrf
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Activity Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="aname" type="text" class="form-control @error('name') is-invalid @enderror" name="aname" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
-
-                            <div class="col-md-6">
-                                <textarea id="description" class="form-control @error('email') is-invalid @enderror" name="description" value="{{ old('description') }}" required >
-                                </textarea>
-
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="atype" class="col-md-4 col-form-label text-md-right">{{ __('Activity Type') }}</label>
-
-                            <div class="col-md-6">
-                            <select id ="atype" name="atype">
-                            <option value="EXTRA">Extra-Curricular</option>
-                            <option value="CO-CURR">Co-Curricular</option>
-                            </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="sdate" type="date" class="form-control @error('password') is-invalid @enderror" name="sdate" required>
-
-                            </div>
-                        </div>
-
-
+                        <label>SEM 1</label>
+                        <input type="text" name="sem1" id="sem1">
+                        <label>SEM 2</label>
+                        <input type="text" name="sem2" id="sem2">
+                        <label>SEM 3</label>
+                        <input type="text" name="sem3" id="sem3">
+                        <label>SEM 4</label>
+                        <input type="text" name="sem4" id="sem4">
+                        <label>SEM 5</label>
+                        <input type="text" name="sem5" id="sem5">
+                        <label>SEM 6</label>
+                        <input type="text" name="sem6" id="sem6">
+                        <label>SEM 7</label>
+                        <input type="text" name="sem7" id="sem7">
+                        <label>SEM 8</label>
+                        <input type="text" name="sem8" id="sem8">
+                        <br><br><br><br>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Submit') }}
-                                </button>
+                              <senter>  <button type="submit" class="btn btn-primary">
+                                   SUBMIT
+                                </button></center>
                                 
                             </div>
                         </div>
-                        <br>
+
+
+
+                         
+
+
+                        
                     </form>
 
             </div>
