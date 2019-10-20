@@ -53,3 +53,7 @@ Route::get('/edit-internship', 'HomeController@edit_internship')->name('edit-int
 Route::post('/update-internship', 'HomeController@update_internship')->name('update-internship');
 Route::get('/edit-activities', 'HomeController@edit_activities')->name('edit-activities');
 Route::post('/edit-activities', 'HomeController@edit_activities')->name('edit-activities');
+
+
+Route::post('/upload-activities', 'HomeController@upload_activities')->name('upload-activities');
+Route::post('/upload-internships', 'HomeController@upload_internships')->name('upload-internships');

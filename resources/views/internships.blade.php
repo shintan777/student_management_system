@@ -24,11 +24,18 @@
                         <tr><th>Stipend</th><td>{{$data->STIPEND}}</td></tr>
                         <tr><th>Start Date</th><td>{{$data->SDATE}}</td></tr>
                         <tr><th>End Date</th><td>{{$data->EDATE}}</td></tr>
-                        <tr><th>View Certificate</th><td><a href = "{{$data->CERTI}}" ></td></tr> 
+                       
                             <tr><td>
                                 <a href="{{ route('edit-internship', (array) $data ) }}"><button>EDIT</button></a>
                                 <a href="{{ route('delete-internship', (array) $data ) }}"><button>DELETE</button></a>
-
+                                
+                                        <form method="POST" action="{{route('upload-internships')}}" enctype="multipart/form-data">
+                                        @csrf
+                                    <input type="file" name="image" id="image">
+                                    <input type="text" name="Aid" id="Aid" value="{{$data->interid}}" style="display:none">
+                                    <button type="submit">Submit File</button>
+                                        </form>
+                                   
                             </td></tr>                
                         </tr>
                     @endforeach
