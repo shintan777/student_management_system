@@ -17,7 +17,7 @@ Route::get('/', function () {
 Route::get('ID/{id}',function($id) {
    echo 'ID: '.$id;
 });
-Route::get('user/{name?}', function ($name = 'admin') { return $name;});
+// Route::get('user/{name?}', function ($name = 'admin') { return $name;});
 Route::get('users/profile', 'UserController@showProfile')->name('profile');
 Auth::routes();
 
@@ -54,6 +54,13 @@ Route::post('/update-internship', 'HomeController@update_internship')->name('upd
 Route::get('/edit-activities', 'HomeController@edit_activities')->name('edit-activities');
 Route::post('/edit-activities', 'HomeController@edit_activities')->name('edit-activities');
 
+Route::get('/admin', 'HomeController@admin')->name('admin');
+Route::get('/select-all', 'HomeController@select')->name('select-all');
+Route::post('/select-all', 'HomeController@select')->name('select-all');
+Route::post('/select-inter', 'HomeController@select_inter')->name('select-inter');
+Route::get('/select-inter', 'HomeController@select_inter')->name('select-inter');
+Route::post('/select-domain', 'HomeController@select_domain')->name('select-domain');
+Route::get('/select-domain', 'HomeController@select_domain')->name('select-domain');
 
 Route::post('/upload-activities', 'HomeController@upload_activities')->name('upload-activities');
 Route::post('/upload-internships', 'HomeController@upload_internships')->name('upload-internships');
