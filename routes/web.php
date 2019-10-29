@@ -67,3 +67,4 @@ Route::post('/upload-internships', 'HomeController@upload_internships')->name('u
 
 // Route::get('/apply_lor', 'HomeController@apply_lor')->name('apply_lor');
 Route::get('/profile', 'HomeController@profile')->name('profile');
+Route::get('/mail','MailController@email')->name('mail');
