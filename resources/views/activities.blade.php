@@ -23,6 +23,14 @@
                         <tr>
                             <th><button><a href="{{ route('edit-activities',(array) $data) }}">Edit Activity</a></button></th>
                             <th><button><a href="{{ route('delete-activities',(array) $data) }}">Delete Activity</a></button></th>
+                        <th>
+                            <form method="POST" action="{{route('upload-activities')}}" enctype="multipart/form-data">
+                            @csrf
+                        <input type="file" name="image" id="image">
+                        <input type="text" name="Aid" id="Aid" value="{{$data->Aid}}" style="display:none">
+                        <button type="submit">Submit File</button>
+                            </form>
+                        </th>
                         </tr>
                         
                         </tr>

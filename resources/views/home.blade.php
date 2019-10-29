@@ -36,6 +36,21 @@
 
 
             </div>
+            <div class="card">
+                    <div class="card-header">Make an Application</div>
+    
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                      <a href="{{route('apply_lor',$data->LibCnumber)}}">  <button name="apply_lor" class="btn-primary">LOR</button></a> &nbsp;
+                      <a href="{{route('profile',$data->LibCnumber)}}">  <button name="profile" class="btn-primary">Preview</button></a>
+                    </div>
+    
+    
+                </div>
         </div>
     </div>
 </div>

@@ -18,6 +18,17 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<style>
+    #footer{
+       
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+           text-align: center;
+       
+    }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -84,13 +95,15 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4" >
             @yield('content')
         </main>
-    </div>
-    <footer>
-      <center>  <p>Copyright Reserved</p></center>
+    
+    <footer class="bg-white shadow-sm" id="footer">
+     <p>Copyright Reserved</p>
         
       </footer> 
+      
+    </div>
 </body>
 </html>

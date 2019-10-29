@@ -271,5 +271,63 @@ class HomeController extends Controller
         return view('select-internships',['res'=>$res2]);
     }
 
+    public function upload_activities(Request $data)
+        
+    {
+        $id = \Auth::user()->email;
+        $res = \DB::select('select * from student where email = ?', [$id]);
+        $id = $res[0]->LibCnumber;
+        $data['libno'] = $id;
+        $aid = $data['Aid'];
+        if($data->hasfile('image')){
+           
+            $file = $data->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $file -> move('uploads/gallery/', $filename);
+           
+        }
+        $res2 = array('certi'=> $filename);
+        \DB::table('activities')
+        ->where('aid', $aid)  // find your user by their email
+        ->limit(1)  // optional - to ensure only one record is updated.
+        ->update($res2);  // update 
+        
+        $res3 = \DB::select('select * from activities where LIBNO = ?', [$id]);
+        return view('activities',['res' => $res3]);
+    }
+    public function upload_internships(Request $data)
+        
+    {
+        $id = \Auth::user()->email;
+        $res = \DB::select('select * from student where email = ?', [$id]);
+        $id = $res[0]->LibCnumber;
+        $data['libno'] = $id;
+        $aid = $data['Aid'];
+        if($data->hasfile('image')){
+           
+            $file = $data->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $file -> move('uploads/gallery/', $filename);
+           
+        }
+        $res2 = array('certi'=> $filename);
+        \DB::table('internship')
+        ->where('interid', $aid)  // find your user by their email
+        ->limit(1)  // optional - to ensure only one record is updated.
+        ->update($res2);  // update 
+        
+        $res2 = \DB::select('select * from internship where LIBNO = ?', [$id]);
+        
+        foreach ($res2 as $key) {
+            $cid =  $key->CID;  
+            $res3 = \DB::select('select cname from company where cid = ?', [$cid]);
+            $key->company = $res3[0]->cname;
+        }
+
+        return view('internships',['res' => $res2]);  
+    }
+
 }
 
