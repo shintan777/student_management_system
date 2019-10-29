@@ -244,5 +244,32 @@ class HomeController extends Controller
 
         return view('internships',['res' => $res2]);   
     }
+    public function admin(){
+        return view('admin');
+    }
+    public function select(){
+        $res2 = \DB::select('select * from student');
+        return view('home',['res'=>$res2]);
+    }
+    public function select_inter(Request $data){
+        $x = $data['x'];
+        // if( $x>1){
+        //     $res2 = \DB::select('select * from internship where ');
+            
+        // } 
+        $xcn = $data['xcname'];
+        $res2 = \DB::select('select * from internship where cid in (select cid from company where cname = ?)',[$xcn]);
+        
+        return view('select-internships',['res'=>$res2]);
+    }
+
+    public function select_domain(Request $data){
+         
+        $xcn = $data['domain'];
+        $res2 = \DB::select('select * from internship where domain = ?',[$xcn]);
+        
+        return view('select-internships',['res'=>$res2]);
+    }
 
 }
+

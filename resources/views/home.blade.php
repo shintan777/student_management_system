@@ -23,7 +23,12 @@
                         <tr><th>Email</th><td>{{$data->email}}</td></tr>
                         <tr><th>Department</th><td>{{$data->dept}}</td></tr>                 
                         <tr><th>Phone No</th><td>{{$data->phno}}</td></tr>   
+                        <tr><th>
+                        <hr>
+                        </th>
                         </tr>
+                        </tr>
+
                     @endforeach
                     </table>
 
