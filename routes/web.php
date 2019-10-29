@@ -65,5 +65,5 @@ Route::get('/select-domain', 'HomeController@select_domain')->name('select-domai
 Route::post('/upload-activities', 'HomeController@upload_activities')->name('upload-activities');
 Route::post('/upload-internships', 'HomeController@upload_internships')->name('upload-internships');
 
-Route::get('/apply_lor', 'HomeController@apply_lor')->name('apply_lor');
+// Route::get('/apply_lor', 'HomeController@apply_lor')->name('apply_lor');
 Route::get('/profile', 'HomeController@profile')->name('profile');

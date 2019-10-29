@@ -45,7 +45,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                      <a href="{{route('apply_lor',$data->LibCnumber)}}">  <button name="apply_lor" class="btn-primary">LOR</button></a> &nbsp;
+                      <button name="apply_lor" id='lor' class="btn-primary">LOR</button> &nbsp;
                       <a href="{{route('profile',$data->LibCnumber)}}">  <button name="profile" class="btn-primary">Preview</button></a>
                     </div>
     
@@ -55,3 +55,34 @@
     </div>
 </div>
 @endsection
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+
+
+<script>
+$('#lor').click(function() {
+    $.ajax({
+  type: “POST”,
+  url: “https://mandrillapp.com/api/1.0/messages/send.json”,
+  data: {
+    'key': '24c5c5d0759e259e16b53a04457602a0-us5',
+    'message': {
+      'from_email': 'mahawikinotes@gmail.com',
+      'to': [
+          {
+            'email': 'adityasrivastava301199@gmail.com',
+            'name': '',
+            'type': 'to'
+          }
+        ],
+      'autotext': 'true',
+      'subject': 'LOR Application Request',
+      'html': 'Please look into this student\'s profile and issue an LoR if applicable 127.0.0.1:8000/profile/{{$data->LibCnumber)}}'
+    }
+  }
+ }).done(function(response) {
+   console.log(response); // if you're into that sorta thing
+ });
+
+});
+</script>
