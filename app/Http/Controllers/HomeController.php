@@ -302,5 +302,21 @@ class HomeController extends Controller
 
         return view('internships',['res' => $res2]);  
     }
+    public function profile($id)
+        
+    {
+       
+        $res2 = \DB::select('select * from internship where LIBNO = ?',[$id]);
+        foreach ($res2 as $key) {
+            $cid =  $key->CID;  
+            $res3 = \DB::select('select cname from company where cid = ?', [$cid]);
+            $key->company = $res3[0]->cname;
+        }
+        $cocurr = \DB::select('select * from activities where LIBNO = ? and atype= "CO-CURR" ',[$id]);
+        $extra = \DB::select('select * from activities where LIBNO = ? and atype= "EXTRA" ',[$id]);
+        $result = \DB::select('select * from res where LIBC = ? ',[$id]);
+        $res = \DB::select('select * from student where LibCnumber = ?', [$id]);
+        return view('profile',['result' => $result,'extra' => $extra,'cocurr' => $cocurr,'internship' => $res2, 'res' => $res]);
+    }
 
 }
