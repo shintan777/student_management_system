@@ -16,7 +16,7 @@ class MailController extends Controller {
         echo var_dump($data['lor']);
         $d = array('id'=> $data['lor']);
         
-
+ 
         Mail::send('emails.mail', $d, function($message) use ($to_name, $to_email) {
                 $message->to($to_email, $to_name)
                 ->subject('Shintan');

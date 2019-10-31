@@ -1,1 +1,1 @@
-Plz view prof for lor of stud : ID is localhost:8000/profile/{{ $id['lor'] }}
+Plz view prof for lor of stud : ID is localhost:8000/profile/{{ $d['id'] }}
