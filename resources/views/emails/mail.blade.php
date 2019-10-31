@@ -1,1 +1,1 @@
-ID is {{ $id }}
+Plz view prof for lor of stud : ID is localhost:8000/profile/{{ $id['lor'] }}

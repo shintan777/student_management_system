@@ -10,18 +10,18 @@ use App\Http\Controllers\Controller;
 class MailController extends Controller {
    public function email(Request $data) {
     
-        $to_name = 'atsrpd';
-        $to_email = 'adityasrivastava301199@gmail.com';
+        $to_name = 'adi';
+        $to_email = 'tanvi.shinde46@gmail.com';
         
-        echo var_dump($id['lor']);
-        $data = array('id'=> $id['lor']);
+        echo var_dump($data['lor']);
+        $d = array('id'=> $data['lor']);
         
 
-        Mail::send('emails.mail', $data, function($message) use ($to_name, $to_email) {
-        $message->to($to_email, $to_name)
-        ->subject('Laravel Test Mail');
-        $message->from('atsrpd@gmail.com','Test Mail');
-        });
+        Mail::send('emails.mail', $d, function($message) use ($to_name, $to_email) {
+                $message->to($to_email, $to_name)
+                ->subject('Shintan');
+                $message->from('atsrpd@gmail.com','Shintan777');
+                });
         return "sent mail";
     }
    
