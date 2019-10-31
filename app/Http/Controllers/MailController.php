@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+
 use Mail;
 
 use App\Http\Requests;
@@ -22,7 +23,17 @@ class MailController extends Controller {
                 ->subject('Shintan');
                 $message->from('atsrpd@gmail.com','Shintan777');
                 });
-        return "sent mail";
+                $id = \Auth::user()->email;
+                $res = \DB::select('select * from student where email = ?', [$id]);
+                $notification = array(
+                    'message' => 'I am a successful message!', 
+                    'alert-type' => 'success'
+                );
+                Toastr::success('Leave successfully requested !','Success');
+                //return Redirect::to('/home')->with($notification);
+                return view('home',['res' => $res]);
+                //return redirect()->route('home',['res' => $res])->wih($notification);
+         
     }
    
 }   

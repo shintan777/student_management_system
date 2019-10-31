@@ -11,10 +11,14 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" integrity="sha256-3blsJd4Hli/7wCQ+bmgXfOdK7p/ZUMtPXY08jmxSSgk=" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" integrity="sha256-ENFZrbVzylNbgnXx0n3I1g//2WeO47XxoPe0vkp3NC8=" crossorigin="anonymous" />
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -76,7 +80,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('home') }}">
-                                   View Profile
+                                   Home
                                  </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -105,5 +109,27 @@
       </footer> 
       
     </div>
+    <script>
+        @if(Session::has('message'))
+          var type = "{{ Session::get('alert-type', 'info') }}";
+          switch(type){
+              case 'info':
+                  toastr.info("{{ Session::get('message') }}");
+                  break;
+              
+              case 'warning':
+                  toastr.warning("{{ Session::get('message') }}");
+                  break;
+      
+              case 'success':
+                  toastr.success("{{ Session::get('message') }}");
+                  break;
+      
+              case 'error':
+                  toastr.error("{{ Session::get('message') }}");
+                  break;
+          }
+        @endif
+      </script>
 </body>
 </html>

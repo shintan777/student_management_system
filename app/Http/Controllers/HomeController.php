@@ -331,8 +331,7 @@ class HomeController extends Controller
     public function profile($id)
         
     {
-       
-        $res2 = \DB::select('select * from internship where LIBNO = ?',[$id]);
+       $res2 = \DB::select('select * from internship where LIBNO = ?',[$id]);
         foreach ($res2 as $key) {
             $cid =  $key->CID;  
             $res3 = \DB::select('select cname from company where cid = ?', [$cid]);
