@@ -8,15 +8,19 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class MailController extends Controller {
-   public function email(Request $data) {
+   public function email(request $id) {
     
-        $to_name = 'adi';
+        // echo var_dump($id['id']);
+        
+        $to_name = 'shintu';
         $to_email = 'tanvi.shinde46@gmail.com';
         
-        echo var_dump($data['lor']);
-        $d = array('id'=> $data['lor']);
+        $d = array('id'=> $id['id']);
         
+<<<<<<< HEAD
  
+=======
+>>>>>>> e924ff65ad56dab5a0548f0ac23be1b3cfa8f08c
         Mail::send('emails.mail', $d, function($message) use ($to_name, $to_email) {
                 $message->to($to_email, $to_name)
                 ->subject('Shintan');
