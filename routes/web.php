@@ -66,5 +66,5 @@ Route::post('/upload-activities', 'HomeController@upload_activities')->name('upl
 Route::post('/upload-internships', 'HomeController@upload_internships')->name('upload-internships');
 
 // Route::get('/apply_lor', 'HomeController@apply_lor')->name('apply_lor');
-Route::get('/profile', 'HomeController@profile')->name('profile');
+Route::get('/profile/{id}', 'HomeController@profile')->name('profile');
 Route::get('/mail','MailController@email')->name('mail');
