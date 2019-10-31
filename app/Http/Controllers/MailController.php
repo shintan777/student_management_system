@@ -17,10 +17,6 @@ class MailController extends Controller {
         
         $d = array('id'=> $id['id']);
         
-<<<<<<< HEAD
- 
-=======
->>>>>>> e924ff65ad56dab5a0548f0ac23be1b3cfa8f08c
         Mail::send('emails.mail', $d, function($message) use ($to_name, $to_email) {
                 $message->to($to_email, $to_name)
                 ->subject('Shintan');
