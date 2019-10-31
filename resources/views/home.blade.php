@@ -47,7 +47,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <a href="{{route('mail',(array) $data }}">  <button name="lor" id='lor' class="btn-primary">LOR</button> </a> &nbsp;
+                        <a href="{{route('mail',(array) $data) }}">  <button name="lor" id='lor' class="btn-primary">LOR</button> </a> &nbsp;
                       <a href="{{route('profile',$data->LibCnumber)}}">  <button name="profile" class="btn-primary">Preview</button></a>
                     </div>
     
