@@ -12,8 +12,8 @@ class MailController extends Controller {
     
         echo var_dump($id['id']);
         
-        $to_name = 'adi';
-        $to_email = 'adityasrivastava301199@gmail.com';
+        $to_name = 'shintu';
+        $to_email = 'tanvi.shinde46@gmail.com';
         
         $d = array('id'=> $id['id']);
         
