@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class MailController extends Controller {
    public function email(request $id) {
     
-        echo var_dump($id['id']);
+        // echo var_dump($id['id']);
         
         $to_name = 'shintu';
         $to_email = 'tanvi.shinde46@gmail.com';
