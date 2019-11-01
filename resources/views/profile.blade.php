@@ -48,6 +48,7 @@
                             <tr><th>sem 6  </th><td>{{$data->sem6}}</td></tr>
                             <tr><th>sem 7  </th><td>{{$data->sem7}}</td></tr>
                             <tr><th>sem 8  </th><td>{{$data->sem8}}</td></tr>
+                            <tr><th>Download Marksheets' Zip</th><td><button> Download </button> </td></tr>
                         </tr>
                             
                         @endforeach
@@ -77,7 +78,9 @@
                         <tr><th>Stipend</th><td>{{$data->STIPEND}}</td></tr>
                         <tr><th>Start Date</th><td>{{$data->SDATE}}</td></tr>
                         <tr><th>End Date</th><td>{{$data->EDATE}}</td></tr>
+                        <tr><th>Download Certificate</th><td><button> Download </button> </td></tr>
                         <tr><td><hr></td></tr>
+
                             </tr>
                             
                         @endforeach
@@ -105,6 +108,7 @@
                         
                         <tr><th>Description</th><td>{{$data->description}}</td></tr>
                         <tr><th>Date</th><td>{{$data->sdate}}</td></tr>
+                        <tr><th>Download Certificate </th><td><button> Download </button> </td></tr>
                         <tr><td><hr></td></tr>
                         <tr>
                         
@@ -118,14 +122,13 @@
                             
                             <tr><th>Description</th><td>{{$data->description}}</td></tr>
                             <tr><th>Date</th><td>{{$data->sdate}}</td></tr>
+                            <tr><th>Download Certificate </th><td><button> Download </button> </td></tr>
                             <tr><td><hr></td></tr>
                             <tr>
                             
                         @endforeach
                         </table>
                 </div>
-
-
 
         </div>
             
